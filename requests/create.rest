@@ -3,7 +3,5 @@ Content-Type: application/json
 
 {
     "title": "second",
-    "author": "second",
-    "url": "second.com",
     "likes": 1
 }
