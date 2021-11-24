@@ -4,7 +4,8 @@ const blogSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    minlength: 1
+    minlength: 1,
+    unique: true
   },
   author: {
     type: String,
@@ -16,7 +17,11 @@ const blogSchema = new mongoose.Schema({
     required: true,
     minlength: 1
   },
-  likes: Number
+  likes: Number,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 })
 
 blogSchema.set('toJSON', {

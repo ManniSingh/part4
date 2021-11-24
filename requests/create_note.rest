@@ -1,0 +1,26 @@
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2MTljMDkwNDhmYjNkZDZiYTRjNTg1YzEiLCJpYXQiOjE2Mzc3NTYyNDMsImV4cCI6MTYzNzc1OTg0M30.GvdnbeMQNuE5EAz2dibMHKF4ucKxZIUa5mNUENdJFHY
+
+{
+    "title": "first",
+    "author": "first",
+    "url": "first.com",
+    "likes": 1
+}
+
+###
+
+POST http://localhost:3003/api/users/
+Content-Type: application/json
+
+{
+    "blogs": [],
+    "username": "user2",
+    "name": "user2",
+    "password": "pass"
+}
+
+###
+DELETE  http://localhost:3003/api/blogs/619d4520619b2389fdfdfd60
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2MTljMDkwNDhmYjNkZDZiYTRjNTg1YzEiLCJpYXQiOjE2Mzc2OTU0NzYsImV4cCI6MTYzNzY5OTA3Nn0.pGZN0wTl3nEnbLTJEl5058-cdZk1YTWWC4Li-eCbXNA
