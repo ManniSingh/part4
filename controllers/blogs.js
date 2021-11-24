@@ -19,10 +19,15 @@ blogsRouter.get('/:id', async (request, response) => {
 
 blogsRouter.put('/:id', async (request, response, next) => {
   const { body } = request
+  const user = request.user
+  if (!request.token || !user) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
   const blog = {
 		title: body.title,
     author: body.author,
     url: body.url,
+    user: user._id,
     likes: body.likes || 0
 	}
   const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })

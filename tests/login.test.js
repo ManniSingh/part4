@@ -179,6 +179,32 @@ describe('Tests on database consistency', () => {
           .send(newBlog)
           .expect(403)
       })
+      test('Update a Blog', async () => {
+        const newBlog = {
+          "title": "TEST",
+          "author": "TEST",
+          "url": "TEST",
+          "likes": 1
+        }
+        const response = await api
+                          .post('/api/blogs')
+                          .set('Authorization', 'bearer ' + token)
+                          .send(newBlog)
+                          .expect(200)
+        const updatedBlog = {
+            "title": "TEST",
+            "author": "TEST",
+            "url": "TEST",
+            "likes": 2
+        }
+        await api
+          .put('/api/blogs/'+response.body.id)
+          .set('Authorization', 'bearer ' + token)
+          .send(updatedBlog)
+          .expect(200)
+        const result = await Blog.findOne({title: "TEST"})
+        expect(result.likes).toBe(2)
+      })
 })
 
 
